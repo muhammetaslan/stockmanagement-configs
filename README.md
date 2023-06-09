@@ -1,2 +1,2 @@
 # stockmanagement-configs
-stock management config repos
+This repository contains stock management project configs

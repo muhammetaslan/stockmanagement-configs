@@ -1,0 +1,13 @@
+# application.yml genel bilgilerin yazılacagı config filedır
+# tüm projeler genel olarak ilk önce buraya bakar, sonrasında kendi isimleri ile olusturulmus kendi yaml file config leri ile buradaki degerleri override ederler
+server:
+  port: 0  # port 0 demememizin nedeni herhangi bir port cakısmasına neden olmamaktır. Eger mikroservisin kendine ait yaml ı yoksa buradan port bilgisini alır ve ona rastgele bir port atanır.
+  shutdown: graceful  # graceful config ile mikroservislerin kapatılırken üzerlerindeki aktif requestleri tamamlayıp sonra kapanmalarını söyler.
+
+spring:
+  cloud:
+    config:
+      allow-override: true
+      override-none: true
+    refresh:
+      refreshable: false

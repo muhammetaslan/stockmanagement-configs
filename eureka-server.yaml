@@ -1,0 +1,61 @@
+spring:
+  application:
+    name: eureka-server # proje ismi
+  profiles:
+    active: localhost
+
+---
+spring:
+  profiles: localhost
+
+info:
+  component: Eureka Server - Github - Localhost
+
+eureka:
+  instance:
+    appname: eureka-server # bu isim eureka client'lar tarafıdan eureka serverın bulunması amacı ile kullanlır.
+    hostname: eureka-server
+    prefer-ip-address: true
+  client:
+    register-with-eureka: false # bu özellik uygulamanın eureka server a kendini servis olarak register edip etmeyeceği bilgisi için verilir.
+    fetch-registry: false
+    service-url:
+      default-zone: http://${eureka.instance.hostname}:${server.port}/eureka
+server:
+  port: 8763
+---
+spring:
+  profiles: stage
+
+info:
+  component: Eureka Server - Github - Stage
+
+eureka:
+  instance:
+    appname: eureka-server
+    hostname: eureka-server
+    prefer-ip-address: true
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      default-zone: http://${eureka.instance.hostname}:${server.port}/eureka
+server:
+  port: 8765
+---
+spring:
+  profiles: prod
+
+info:
+  component: Eureka Server - Github - Prod
+
+eureka:
+  instance:
+    appname: eureka-server
+    hostname: eureka-server
+    prefer-ip-address: true
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      default-zone: http://${eureka.instance.hostname}:${server.port}/eureka
